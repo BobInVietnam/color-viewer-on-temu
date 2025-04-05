@@ -3,23 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_detect">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_detect"
         android:name="com.example.colorviewerontemu.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:label="@string/detect"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_filter"
         android:name="com.example.colorviewerontemu.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/filter"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_simulation"
         android:name="com.example.colorviewerontemu.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/simulation"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_grading"
+        android:name="com.example.colorviewerontemu.ui.grading.GradingFragment"
+        android:label="@string/grading"
+        tools:layout="@layout/fragment_grading" />
+
 </navigation>
