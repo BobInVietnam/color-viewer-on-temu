@@ -16,7 +16,7 @@ public class HomeViewModel extends ViewModel {
 //        counterText.setValue("Counter = " + counter);
     }
 
-
+    public void setmText(String s) { mText.setValue(s);}
     public LiveData<String> getText() {
         return mText;
     }
