@@ -1,5 +1,7 @@
 package com.example.colorviewerontemu.ui.home;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -24,6 +26,7 @@ import androidx.camera.core.ImageProxy;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -41,6 +44,7 @@ import java.util.Timer;
 
 public class HomeFragment extends Fragment {
 
+    private static final int PERMISSION_REQUEST_CAMERA = 100;
     private CameraFilterRenderer cameraFilterRenderer;
     private GLSurfaceView glSurfaceView;
     private ProcessCameraProvider cameraProvider;
@@ -50,8 +54,18 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+
+        // Camera Permission
+        if (ContextCompat.checkSelfPermission(this.getContext(), Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this.getActivity(),
+                    new String[]{Manifest.permission.CAMERA},
+                    PERMISSION_REQUEST_CAMERA);
+        } else {
+            startCameraX();
+        }
+
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -70,13 +84,18 @@ public class HomeFragment extends Fragment {
         glSurfaceView.setRenderer(cameraFilterRenderer);
         glSurfaceView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 
-        // Bring glSurfaceView to the front
+//        // Bring glSurfaceView to the front
         glSurfaceView.setZOrderOnTop(true);
         glSurfaceView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
         glSurfaceView.bringToFront();
 
-        // Start Camera
-        startCameraX();
+        glSurfaceView.setZOrderMediaOverlay(true);
+        textView.bringToFront();
+        final TextView centerPlus = binding.centerPlus;
+        centerPlus.bringToFront();
+        centerPlus.setX((int) (glSurfaceView.getWidth() / 2f - centerPlus.getWidth() / 2f));
+        centerPlus.setY((int) (glSurfaceView.getHeight() / 2f - centerPlus.getHeight() / 2f));
+
         // Initial testing
 
 //        final ToggleButton tbutton = binding.funButton;
