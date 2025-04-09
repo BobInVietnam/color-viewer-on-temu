@@ -1,15 +1,15 @@
-package com.example.colorviewerontemu.ui.home;
+package com.example.colorviewerontemu.ui.detect;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class DetectViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
     private int counter = 0;
     private MutableLiveData<String> counterText;
-    public HomeViewModel() {
+    public DetectViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is home fragment");
 //        counterText = new MutableLiveData<>();

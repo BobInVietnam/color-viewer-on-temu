@@ -1,4 +1,4 @@
-package com.example.colorviewerontemu.ui.home;
+package com.example.colorviewerontemu.ui.detect;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -36,7 +36,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.colorviewerontemu.CameraFilterRenderer;
 import com.example.colorviewerontemu.ColorUtils;
 import com.example.colorviewerontemu.ShaderSettings;
-import com.example.colorviewerontemu.databinding.FragmentHomeBinding;
+import com.example.colorviewerontemu.databinding.FragmentDetectBinding;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.ByteArrayOutputStream;
@@ -48,8 +48,8 @@ public class DetectFragment extends Fragment {
     private CameraFilterRenderer cameraFilterRenderer;
     private GLSurfaceView glSurfaceView;
     private ProcessCameraProvider cameraProvider;
-    private FragmentHomeBinding binding;
-    private HomeViewModel homeViewModel;
+    private FragmentDetectBinding binding;
+    private DetectViewModel detectViewModel;
 
     private ImageButton proButton;
     private ImageButton deuButton;
@@ -70,13 +70,13 @@ public class DetectFragment extends Fragment {
             startCameraX();
         }
 
-        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        detectViewModel = new ViewModelProvider(this).get(DetectViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentDetectBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        detectViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         // Menu for color fixing filters. Normally hidden.
         final RelativeLayout fixMenu = binding.fixMenu;
@@ -284,7 +284,7 @@ public class DetectFragment extends Fragment {
         String colorName = ColorUtils.getColorName(color);
 
         // Display the color name in the TextView
-        homeViewModel.setmText(colorName);
+        detectViewModel.setmText(colorName);
 
         Log.d("ColorDetection", "Detected color: " + colorName);
     }

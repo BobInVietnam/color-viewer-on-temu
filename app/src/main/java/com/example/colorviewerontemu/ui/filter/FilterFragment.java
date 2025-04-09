@@ -1,4 +1,4 @@
-package com.example.colorviewerontemu.ui.dashboard;
+package com.example.colorviewerontemu.ui.filter;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -26,7 +26,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.colorviewerontemu.CameraFilterRenderer2;
-import com.example.colorviewerontemu.databinding.FragmentDashboardBinding;
+import com.example.colorviewerontemu.databinding.FragmentFilterBinding;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.ByteArrayOutputStream;
@@ -37,14 +37,14 @@ public class FilterFragment extends Fragment {
     private CameraFilterRenderer2 cameraFilterRenderer;
     private ProcessCameraProvider cameraProvider;
     private GLSurfaceView glSurfaceView;
-    private FragmentDashboardBinding binding;
+    private FragmentFilterBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        FilterViewModel filterViewModel =
+                new ViewModelProvider(this).get(FilterViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentFilterBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         // Initialize GLSurfaceView and set renderer
@@ -68,7 +68,7 @@ public class FilterFragment extends Fragment {
         startCameraX();
 
         final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        filterViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

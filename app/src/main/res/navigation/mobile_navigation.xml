@@ -7,21 +7,21 @@
 
     <fragment
         android:id="@+id/navigation_detect"
-        android:name="com.example.colorviewerontemu.ui.home.DetectFragment"
+        android:name="com.example.colorviewerontemu.ui.detect.DetectFragment"
         android:label="@string/detect"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_detect" />
 
     <fragment
         android:id="@+id/navigation_filter"
-        android:name="com.example.colorviewerontemu.ui.dashboard.FilterFragment"
+        android:name="com.example.colorviewerontemu.ui.filter.FilterFragment"
         android:label="@string/filter"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_filter" />
 
     <fragment
         android:id="@+id/navigation_simulation"
-        android:name="com.example.colorviewerontemu.ui.notifications.NotificationsFragment"
+        android:name="com.example.colorviewerontemu.ui.simulation.SimulationFragment"
         android:label="@string/simulation"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_simulation" />
 
     <fragment
         android:id="@+id/navigation_grading"
