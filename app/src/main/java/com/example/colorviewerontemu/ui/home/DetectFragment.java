@@ -41,8 +41,6 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
-import java.util.Objects;
-import java.util.Timer;
 
 public class DetectFragment extends Fragment {
 
