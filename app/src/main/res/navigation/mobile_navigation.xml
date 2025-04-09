@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_filter"
-        android:name="com.example.colorviewerontemu.ui.dashboard.DashboardFragment"
+        android:name="com.example.colorviewerontemu.ui.dashboard.FilterFragment"
         android:label="@string/filter"
         tools:layout="@layout/fragment_dashboard" />
 
