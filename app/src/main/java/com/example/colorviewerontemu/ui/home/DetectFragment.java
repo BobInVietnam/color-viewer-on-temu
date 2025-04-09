@@ -16,8 +16,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.camera.core.CameraSelector;
@@ -33,16 +35,16 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.colorviewerontemu.CameraFilterRenderer;
 import com.example.colorviewerontemu.ColorUtils;
+import com.example.colorviewerontemu.ShaderSettings;
 import com.example.colorviewerontemu.databinding.FragmentHomeBinding;
 import com.google.common.util.concurrent.ListenableFuture;
 
-import org.w3c.dom.Text;
-
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
+import java.util.Objects;
 import java.util.Timer;
 
-public class HomeFragment extends Fragment {
+public class DetectFragment extends Fragment {
 
     private static final int PERMISSION_REQUEST_CAMERA = 100;
     private CameraFilterRenderer cameraFilterRenderer;
@@ -50,15 +52,20 @@ public class HomeFragment extends Fragment {
     private ProcessCameraProvider cameraProvider;
     private FragmentHomeBinding binding;
     private HomeViewModel homeViewModel;
-    private Timer timer;
+
+    private ImageButton proButton;
+    private ImageButton deuButton;
+    private ImageButton triButton;
+
+    boolean pr, de, tr;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         // Camera Permission
-        if (ContextCompat.checkSelfPermission(this.getContext(), Manifest.permission.CAMERA)
+        if (ContextCompat.checkSelfPermission(this.requireContext(), Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this.getActivity(),
+            ActivityCompat.requestPermissions(this.requireActivity(),
                     new String[]{Manifest.permission.CAMERA},
                     PERMISSION_REQUEST_CAMERA);
         } else {
@@ -72,6 +79,49 @@ public class HomeFragment extends Fragment {
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+        // Menu for color fixing filters. Normally hidden.
+        final RelativeLayout fixMenu = binding.fixMenu;
+        fixMenu.setVisibility(View.GONE);
+
+        // Filter buttons
+        proButton = binding.ProFixButton;
+        deuButton = binding.DeuFixButton;
+        triButton = binding.TriFixButton;
+
+        proButton.setOnClickListener(view -> {
+            pr = !pr;
+            de = false;
+            tr = false;
+            changeFilter();
+        });
+
+        deuButton.setOnClickListener(view -> {
+            pr = false;
+            de = !de;
+            tr = false;
+            changeFilter();
+        });
+
+        triButton.setOnClickListener(view -> {
+            pr = false;
+            de = false;
+            tr = !tr;
+            changeFilter();
+        });
+
+        // Button to turn on menu.
+        final Button toggleFixButton = binding.changeFilterButton;
+
+        toggleFixButton.setOnClickListener(view -> {
+            if (fixMenu.getVisibility() != View.GONE) {
+                fixMenu.setVisibility(View.GONE);
+                toggleFixButton.setText("Change Filter");
+            } else {
+                fixMenu.setVisibility(View.VISIBLE);
+                toggleFixButton.setText("Close");
+            }
+        });
 
         // Initialize GLSurfaceView and set renderer
         glSurfaceView = binding.glSurfaceView;
@@ -95,6 +145,7 @@ public class HomeFragment extends Fragment {
         centerPlus.bringToFront();
         centerPlus.setX((int) (glSurfaceView.getWidth() / 2f - centerPlus.getWidth() / 2f));
         centerPlus.setY((int) (glSurfaceView.getHeight() / 2f - centerPlus.getHeight() / 2f));
+        fixMenu.bringToFront();
 
         // Initial testing
 
@@ -108,9 +159,21 @@ public class HomeFragment extends Fragment {
 //        homeViewModel.getCounterText().observe(getViewLifecycleOwner(), counterTextView::setText);
         return root;
     }
-
+    private void changeFilter() {
+        proButton.setSelected(pr);
+        deuButton.setSelected(de);
+        triButton.setSelected(tr);
+        if (pr) ShaderSettings.getInstance().setShaderMode(1);
+        else if (de) ShaderSettings.getInstance().setShaderMode(2);
+        else if(tr) ShaderSettings.getInstance().setShaderMode(3);
+        else ShaderSettings.getInstance().setShaderMode(0);
+        if(cameraFilterRenderer!=null) {
+            cameraFilterRenderer.show();
+            glSurfaceView.requestRender();
+        }
+    }
     private void startCameraX() {
-        ListenableFuture<ProcessCameraProvider> cameraProviderFuture = ProcessCameraProvider.getInstance(this.getContext());
+        ListenableFuture<ProcessCameraProvider> cameraProviderFuture = ProcessCameraProvider.getInstance(this.requireContext());
         cameraProviderFuture.addListener(() -> {
             try {
                 cameraProvider = cameraProviderFuture.get();
@@ -118,7 +181,7 @@ public class HomeFragment extends Fragment {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }, ContextCompat.getMainExecutor(this.getContext()));
+        }, ContextCompat.getMainExecutor(this.requireContext()));
     }
 
     private void bindCamera(ProcessCameraProvider cameraProvider) {

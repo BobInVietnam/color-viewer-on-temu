@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.DetectFragment">
 
-    <android.widget.RelativeLayout
+    <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="120dp">
+        android:layout_marginBottom="140dp">
 
         <androidx.camera.view.PreviewView
             android:id="@+id/pvPreview"
@@ -46,6 +46,99 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/glSurfaceView" />
 
+        <RelativeLayout
+            android:id="@+id/fixMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@color/black_transparent"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/linearLayout"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/ProFixButton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@color/light_gray"
+                    android:contentDescription="@string/protanopia"
+                    android:src="@drawable/baseline_filter_1_24" />
+
+                <TextView
+                    android:id="@+id/ProTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/protanopia"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/DeuFixButton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@color/light_gray"
+                    android:contentDescription="@string/deuteranopia"
+                    android:src="@drawable/baseline_filter_2_24" />
+
+                <TextView
+                    android:id="@+id/DeuTexView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/deuteranopia"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/linearLayout"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/TriFixButton"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@color/light_gray"
+                    android:src="@drawable/baseline_filter_3_24" />
+
+                <TextView
+                    android:id="@+id/TriTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/tritanopia"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
         <TextView
             android:id="@+id/centerPlus"
             android:layout_width="match_parent"
@@ -58,38 +151,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </android.widget.RelativeLayout>
+    </RelativeLayout>
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <Button
+        android:id="@+id/changeFilterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="72dp"
-        android:src="@drawable/baseline_filter_1_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="4dp"
+        android:text="Change Filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
-        android:src="@drawable/baseline_filter_2_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toEndOf="@+id/imageButton" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="72dp"
-        android:src="@drawable/baseline_filter_3_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
     <!-- Initial Testing -->
 
 <!--    <ToggleButton-->
