@@ -1,15 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".ui.grading.GradingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textGrading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/grading" />
+        android:id="@+id/process"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_medium"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="263dp"
+        android:layout_height="234dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/process"
+        app:srcCompat="@drawable/p1" />
+
+    <EditText
+        android:id="@+id/box"
+        android:layout_width="212dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/mybutton"
+        android:backgroundTint="#1d1d1d"
+        android:ems="10"
+        android:fontFamily="@font/inter"
+        android:hint="Enter number"
+        android:inputType="text"
+        android:paddingLeft="16dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:columnCount="5"
+        android:useDefaultMargins="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/box">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/number_buttons"
+            android:fontFamily="@font/inter"
+            android:text="1"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/number_buttons"
+            android:fontFamily="@font/inter"
+            android:text="2"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/number_buttons"
+            android:fontFamily="@font/inter"
+            android:text="3"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/number_buttons"
+            android:fontFamily="@font/inter"
+            android:text="4"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/number_buttons"
+            android:fontFamily="@font/inter"
+            android:text="5"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/number_buttons"
+            android:fontFamily="@font/inter"
+            android:text="6"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/number_buttons"
+            android:fontFamily="@font/inter"
+            android:text="7"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/number_buttons"
+            android:fontFamily="@font/inter"
+            android:text="8"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/number_buttons"
+            android:fontFamily="@font/inter"
+            android:text="9"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/number_buttons"
+            android:fontFamily="@font/inter"
+            android:text="0"
+            android:textSize="14sp" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="60dp"
+        android:background="#00FFFFFF"
+        android:drawableRight="@drawable/baseline_arrow_forward_24"
+        android:drawablePadding="8dp"
+        android:drawableTint="#FFFFFF"
+        android:fontFamily="@font/inter"
+        android:text="Next"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:iconSize="16dp"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDelete"
+        app:layout_constraintVertical_bias="0.288" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="90dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="Which number do you see?\n(Enter “0” if you see nothing)"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+
+    <ImageButton
+        android:id="@+id/buttonDelete"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/number_buttons"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/backspace_24px"
+        android:text="Xóa"
+        app:layout_constraintEnd_toEndOf="@+id/gridLayout"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+        app:tint="#FFFFFF" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
