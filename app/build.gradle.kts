@@ -35,7 +35,9 @@ android {
 }
 
 dependencies {
-
+    implementation("com.getkeepsafe.taptargetview:taptargetview:1.13.3")
+    implementation("com.getkeepsafe.taptargetview:taptargetview:1.12.0")
+    implementation("com.getkeepsafe.taptargetview:taptargetview:1.13.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
