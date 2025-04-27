@@ -90,7 +90,7 @@ public class GradingFragment extends Fragment {
             button.setOnClickListener(this::onButtonClick);
         }
 
-        ImageButton delete = rootView.findViewById(R.id.buttonDelete);
+        Button delete = rootView.findViewById(R.id.buttonDelete);
         delete.setOnClickListener(this::onButtonClick);
     }
 
