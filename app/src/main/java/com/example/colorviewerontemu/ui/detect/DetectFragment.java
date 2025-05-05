@@ -51,9 +51,10 @@ public class DetectFragment extends Fragment {
     private FragmentDetectBinding binding;
     private DetectViewModel detectViewModel;
 
-    private ImageButton proButton;
-    private ImageButton deuButton;
-    private ImageButton triButton;
+    private Button normButton;
+    private Button proButton;
+    private Button deuButton;
+    private Button triButton;
 
     boolean pr, de, tr;
 
@@ -79,16 +80,24 @@ public class DetectFragment extends Fragment {
         detectViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
         // Menu for color fixing filters. Normally hidden.
-        final RelativeLayout fixMenu = binding.fixMenu;
-        fixMenu.setVisibility(View.GONE);
+//        final RelativeLayout fixMenu = binding.fixMenu;
+//        fixMenu.setVisibility(View.GONE);
 
         // Filter buttons
-        proButton = binding.ProFixButton;
-        deuButton = binding.DeuFixButton;
-        triButton = binding.TriFixButton;
+        normButton = binding.normal;
+        proButton = binding.red;
+        deuButton = binding.green;
+        triButton = binding.blue;
 
+        normButton.setSelected(true);
+        normButton.setOnClickListener(view -> {
+            pr = false;
+            de = false;
+            tr = false;
+            changeFilter();
+        });
         proButton.setOnClickListener(view -> {
-            pr = !pr;
+            pr = true;
             de = false;
             tr = false;
             changeFilter();
@@ -96,7 +105,7 @@ public class DetectFragment extends Fragment {
 
         deuButton.setOnClickListener(view -> {
             pr = false;
-            de = !de;
+            de = true;
             tr = false;
             changeFilter();
         });
@@ -104,22 +113,22 @@ public class DetectFragment extends Fragment {
         triButton.setOnClickListener(view -> {
             pr = false;
             de = false;
-            tr = !tr;
+            tr = true;
             changeFilter();
         });
 
         // Button to turn on menu.
-        final Button toggleFixButton = binding.changeFilterButton;
-
-        toggleFixButton.setOnClickListener(view -> {
-            if (fixMenu.getVisibility() != View.GONE) {
-                fixMenu.setVisibility(View.GONE);
-                toggleFixButton.setText("Change Filter");
-            } else {
-                fixMenu.setVisibility(View.VISIBLE);
-                toggleFixButton.setText("Close");
-            }
-        });
+//        final Button toggleFixButton = binding.changeFilterButton;
+//
+//        toggleFixButton.setOnClickListener(view -> {
+//            if (fixMenu.getVisibility() != View.GONE) {
+//                fixMenu.setVisibility(View.GONE);
+//                toggleFixButton.setText("Change Filter");
+//            } else {
+//                fixMenu.setVisibility(View.VISIBLE);
+//                toggleFixButton.setText("Close");
+//            }
+//        });
 
         // Initialize GLSurfaceView and set renderer
         glSurfaceView = binding.glSurfaceView;
@@ -143,7 +152,7 @@ public class DetectFragment extends Fragment {
         centerPlus.bringToFront();
         centerPlus.setX((int) (glSurfaceView.getWidth() / 2f - centerPlus.getWidth() / 2f));
         centerPlus.setY((int) (glSurfaceView.getHeight() / 2f - centerPlus.getHeight() / 2f));
-        fixMenu.bringToFront();
+//        fixMenu.bringToFront();
 
         // Initial testing
 
@@ -158,6 +167,7 @@ public class DetectFragment extends Fragment {
         return root;
     }
     private void changeFilter() {
+        normButton.setSelected(!(pr||de||tr));
         proButton.setSelected(pr);
         deuButton.setSelected(de);
         triButton.setSelected(tr);

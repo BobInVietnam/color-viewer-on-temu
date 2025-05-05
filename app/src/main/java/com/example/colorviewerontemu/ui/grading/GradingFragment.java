@@ -235,7 +235,6 @@ public class GradingFragment extends Fragment {
             switchTest();
         }
 
-
         else if(Objects.equals(currentTest, "p2")) {
             //right
             if(box.getText().toString().trim().equals("8")) {
@@ -253,7 +252,6 @@ public class GradingFragment extends Fragment {
             switchTest();
         }
 
-
         else if(Objects.equals(currentTest, "p3")) {
             if(box.getText().toString().trim().equals("29")) {
                 switchTest();
@@ -269,7 +267,6 @@ public class GradingFragment extends Fragment {
             both++;
             switchTest();
         }
-
 
         else if(Objects.equals(currentTest, "p4")) {
             //right
@@ -288,7 +285,6 @@ public class GradingFragment extends Fragment {
             switchTest();
         }
 
-
         else if(Objects.equals(currentTest, "p5")) {
             //right
             if(box.getText().toString().trim().equals("3")) {
@@ -306,7 +302,6 @@ public class GradingFragment extends Fragment {
             switchTest();
         }
 
-
         else if(Objects.equals(currentTest, "p6")) {
             if(box.getText().toString().trim().equals("15")) {
                 switchTest();
@@ -322,7 +317,6 @@ public class GradingFragment extends Fragment {
             both++;
             switchTest();
         }
-
 
         else if(Objects.equals(currentTest, "p7")) {
             if(box.getText().toString().trim().equals("74")) {
@@ -340,7 +334,6 @@ public class GradingFragment extends Fragment {
             switchTest();
         }
 
-
         else if(Objects.equals(currentTest, "p8")) {
             if(box.getText().toString().trim().equals("6")) {
                 switchTest();
@@ -351,7 +344,6 @@ public class GradingFragment extends Fragment {
             both++;
             switchTest();
         }
-
 
         else if(Objects.equals(currentTest, "p9")) {
             if(box.getText().toString().trim().equals("45")) {
@@ -364,7 +356,6 @@ public class GradingFragment extends Fragment {
             switchTest();
         }
 
-
         else if(Objects.equals(currentTest, "p10")) {
             if(box.getText().toString().trim().equals("5")) {
                 switchTest();
@@ -375,7 +366,6 @@ public class GradingFragment extends Fragment {
             both++;
             switchTest();
         }
-
 
         else if(Objects.equals(currentTest, "p11")) {
             if(box.getText().toString().trim().equals("7")) {
@@ -388,7 +378,6 @@ public class GradingFragment extends Fragment {
             switchTest();
         }
 
-
         else if(Objects.equals(currentTest, "p12")) {
             if(box.getText().toString().trim().equals("16")) {
                 switchTest();
@@ -399,7 +388,6 @@ public class GradingFragment extends Fragment {
             both++;
             switchTest();
         }
-
 
         else if(Objects.equals(currentTest, "p13")) {
             if(box.getText().toString().trim().equals("73")) {

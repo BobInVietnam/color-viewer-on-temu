@@ -47,7 +47,6 @@ public class SimulationFragment extends Fragment {
     private PreviewView previewView;
     private ConstraintLayout navigation;
     private ConstraintLayout colorBlindnessType;
-    private ImageButton back;
     private Button red, green, blue, normal;
 
     private TextView mimic;
@@ -58,18 +57,12 @@ public class SimulationFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_simulation, container, false);
         // Initialize UI components
-        back = rootView.findViewById(R.id.back2);
         previewView = rootView.findViewById(R.id.pvPreview);
         glSurfaceView = rootView.findViewById(R.id.glSurfaceView);
         red = rootView.findViewById(R.id.red);
         green = rootView.findViewById(R.id.green);
         blue = rootView.findViewById(R.id.blue);
         normal = rootView.findViewById(R.id.normal);
-
-        // Back button listener
-        back.setOnClickListener(v -> {
-            startActivity(new Intent(getActivity(), MainActivity.class));
-        });
 
         // Set up the Spinner for color blindness selection
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
@@ -138,10 +131,6 @@ public class SimulationFragment extends Fragment {
         navigation.bringToFront();
         colorBlindnessType.bringToFront();
         glSurfaceView.setZOrderMediaOverlay(true);
-
-        // Start tutorial button
-        ImageButton startTutorialButton = rootView.findViewById(R.id.tutorial);
-        startTutorialButton.setOnClickListener(v -> startTutorial(back, red, green, blue, normal));
 
         return rootView;  // Return the inflated view
     }

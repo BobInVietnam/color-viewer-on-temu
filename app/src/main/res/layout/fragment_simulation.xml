@@ -21,7 +21,7 @@
         android:id="@+id/glSurfaceView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="140dp"
         app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,11 +34,11 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:background="#801D1D1D"
+        android:background="@color/black_transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/glSurfaceView">
         <!-- Nút D -->
         <Button
             android:id="@+id/normal"
@@ -46,58 +46,55 @@
             android:layout_height="wrap_content"
 
             android:background="@drawable/button_selector"
-            android:text="D"
+            android:gravity="center"
+            android:text="N"
             android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:gravity="center"
             app:layout_constraintEnd_toStartOf="@id/red"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Nút R -->
         <Button
             android:id="@+id/red"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
             android:background="@drawable/button_selector"
-            android:text="R"
+            android:gravity="center"
+            android:text="P"
             android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@id/green"
             app:layout_constraintStart_toEndOf="@id/normal"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/green" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Nút G -->
         <Button
             android:id="@+id/green"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
             android:background="@drawable/button_selector"
-            android:text="G"
+            android:gravity="center"
+            android:text="D"
             android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:gravity="center"
+            app:layout_constraintEnd_toStartOf="@id/blue"
             app:layout_constraintStart_toEndOf="@id/red"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/blue" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Nút B -->
         <Button
             android:id="@+id/blue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
             android:background="@drawable/button_selector"
-            android:text="B"
+            android:gravity="center"
+            android:text="T"
             android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/green"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -110,31 +107,6 @@
         app:layout_constraintTop_toTopOf="@+id/glSurfaceView">
 
 
-        <ImageButton
-            android:id="@+id/back2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:background="@null"
-            android:backgroundTint="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_arrow_back_ios_24"
-            app:tint="#FFFFFF" />
-
-        <ImageButton
-            android:id="@+id/tutorial"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="#00FFFFFF"
-            android:src="@drawable/help_24px"
-            android:text="tutorial"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/back2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="#FFFFFF" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

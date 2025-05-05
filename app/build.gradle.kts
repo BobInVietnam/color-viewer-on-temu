@@ -38,6 +38,8 @@ dependencies {
     implementation("com.getkeepsafe.taptargetview:taptargetview:1.13.3")
     implementation("com.getkeepsafe.taptargetview:taptargetview:1.12.0")
     implementation("com.getkeepsafe.taptargetview:taptargetview:1.13.0")
+    implementation("com.github.Mirkoddd:Range-SeekBar:1.1.0")
+    implementation("com.github.rtugeek:colorseekbar:1.7.7")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
@@ -56,5 +58,3 @@ dependencies {
     implementation (libs.camera.view)
     implementation (libs.camera.extensions)
 }
-
-

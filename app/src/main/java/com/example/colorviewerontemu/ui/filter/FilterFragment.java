@@ -28,12 +28,17 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.colorviewerontemu.CameraFilterRenderer2;
 import com.example.colorviewerontemu.databinding.FragmentFilterBinding;
 import com.google.common.util.concurrent.ListenableFuture;
+import it.mirko.rangeseekbar.OnRangeSeekBarListener;
+import it.mirko.rangeseekbar.RangeSeekBar;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.ByteBuffer;
 
 public class FilterFragment extends Fragment {
 
+    RangeSeekBar rangeSeekBar;
+    int str = 0;
+    int ed = 360;
     private CameraFilterRenderer2 cameraFilterRenderer;
     private ProcessCameraProvider cameraProvider;
     private GLSurfaceView glSurfaceView;
@@ -46,6 +51,20 @@ public class FilterFragment extends Fragment {
 
         binding = FragmentFilterBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        rangeSeekBar = binding.rangeSeekBar;
+        rangeSeekBar.setStartProgress(0);
+        rangeSeekBar.setEndProgress(360);
+        rangeSeekBar.setMax(360);
+        rangeSeekBar.setMinDifference(40);
+        rangeSeekBar.setOnRangeSeekBarListener(new OnRangeSeekBarListener() {
+            @Override
+            public void onRangeValues(RangeSeekBar rangeSeekBar, int start, int end) {
+                str = start;
+                ed = end;
+                cameraFilterRenderer.setHueRange(str, ed); // Pass hue range to renderer
+            }
+        });
 
         // Initialize GLSurfaceView and set renderer
         glSurfaceView = binding.glSurfaceView;
@@ -66,9 +85,6 @@ public class FilterFragment extends Fragment {
 
         // Start CameraX after the renderer is initialized
         startCameraX();
-
-        final TextView textView = binding.textDashboard;
-        filterViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

@@ -46,97 +46,99 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/glSurfaceView" />
 
-        <RelativeLayout
-            android:id="@+id/fixMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:background="@color/black_transparent"
-            android:padding="20dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:layout_centerVertical="true"
-                android:layout_toStartOf="@+id/linearLayout"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/ProFixButton"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@color/light_gray"
-                    android:contentDescription="@string/protanopia"
-                    android:src="@drawable/baseline_filter_1_24" />
-
-                <TextView
-                    android:id="@+id/ProTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/protanopia"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/DeuFixButton"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@color/light_gray"
-                    android:contentDescription="@string/deuteranopia"
-                    android:src="@drawable/baseline_filter_2_24" />
-
-                <TextView
-                    android:id="@+id/DeuTexView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/deuteranopia"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
 
 
-            </LinearLayout>
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/fixMenu"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:background="@color/black_transparent"-->
+<!--            android:padding="20dp">-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@+id/linearLayout"
-                android:gravity="center"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="50dp"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_toStartOf="@+id/linearLayout"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="vertical">-->
 
-                <ImageButton
-                    android:id="@+id/TriFixButton"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@color/light_gray"
-                    android:src="@drawable/baseline_filter_3_24" />
+<!--                <ImageButton-->
+<!--                    android:id="@+id/ProFixButton"-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:background="@color/light_gray"-->
+<!--                    android:contentDescription="@string/protanopia"-->
+<!--                    android:src="@drawable/baseline_filter_1_24" />-->
 
-                <TextView
-                    android:id="@+id/TriTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/tritanopia"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/ProTextView"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:text="@string/protanopia"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="16sp" />-->
+<!--            </LinearLayout>-->
 
-        </RelativeLayout>
+<!--            <LinearLayout-->
+<!--                android:id="@+id/linearLayout"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <ImageButton-->
+<!--                    android:id="@+id/DeuFixButton"-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:background="@color/light_gray"-->
+<!--                    android:contentDescription="@string/deuteranopia"-->
+<!--                    android:src="@drawable/baseline_filter_2_24" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/DeuTexView"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:text="@string/deuteranopia"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="16sp" />-->
+
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="45dp"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:layout_toEndOf="@+id/linearLayout"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <ImageButton-->
+<!--                    android:id="@+id/TriFixButton"-->
+<!--                    android:layout_width="60dp"-->
+<!--                    android:layout_height="60dp"-->
+<!--                    android:background="@color/light_gray"-->
+<!--                    android:src="@drawable/baseline_filter_3_24" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/TriTextView"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="8dp"-->
+<!--                    android:text="@string/tritanopia"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="16sp" />-->
+<!--            </LinearLayout>-->
+
+<!--        </RelativeLayout>-->
 
 
         <TextView
@@ -153,38 +155,84 @@
             app:layout_constraintTop_toTopOf="parent" />
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/changeFilterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Change Filter"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@color/black_transparent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+        <!-- Nút D -->
+        <Button
+            android:id="@+id/normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
 
-    <!-- Initial Testing -->
+            android:background="@drawable/button_selector"
+            android:gravity="center"
+            android:text="N"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <ToggleButton-->
-<!--        android:id="@+id/fun_button"-->
-<!--        android:layout_width="24dp"-->
-<!--        android:layout_height="24dp"-->
-<!--        android:layout_margin="20dp"-->
-<!--        android:layout_marginBottom="32dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/text_home"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
+        <Button
+            android:id="@+id/red"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
 
-<!--    <TextView-->
-<!--        android:id="@+id/counter_text"-->
-<!--        android:layout_width="match_parent"-->
+            android:background="@drawable/button_selector"
+            android:gravity="center"
+            android:text="P"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/green"
+            app:layout_constraintStart_toEndOf="@id/normal"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/green"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/button_selector"
+            android:gravity="center"
+            android:text="D"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@id/blue"
+            app:layout_constraintStart_toEndOf="@id/red"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/blue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/button_selector"
+            android:gravity="center"
+            android:text="T"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/green"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    -->
+<!--    <Button-->
+<!--        android:id="@+id/changeFilterButton"-->
+<!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        android:textAlignment="center"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/text_home"-->
-<!--        tools:layout_editor_absoluteX="0dp" />-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:text="Change Filter"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />-->
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
