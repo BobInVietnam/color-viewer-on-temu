@@ -1,5 +1,6 @@
 package com.example.colorviewerontemu.ui.filter;
 
+import android.animation.ObjectAnimator;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
@@ -82,6 +83,13 @@ public class FilterFragment extends Fragment {
         glSurfaceView.getHolder().setFormat(PixelFormat.TRANSLUCENT);
         glSurfaceView.bringToFront();
         glSurfaceView.setZOrderMediaOverlay(true);
+
+        final TextView instruction = binding.textInstruction;
+        instruction.bringToFront();
+        ObjectAnimator fadeout = ObjectAnimator.ofFloat(instruction, "alpha", 1f, 0f);
+        fadeout.setDuration(1000);
+        fadeout.setStartDelay(3000);
+        fadeout.start();
 
         // Start CameraX after the renderer is initialized
         startCameraX();

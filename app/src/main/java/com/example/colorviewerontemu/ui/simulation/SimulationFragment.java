@@ -1,5 +1,6 @@
 package com.example.colorviewerontemu.ui.simulation;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -131,6 +132,13 @@ public class SimulationFragment extends Fragment {
         navigation.bringToFront();
         colorBlindnessType.bringToFront();
         glSurfaceView.setZOrderMediaOverlay(true);
+
+        final TextView instruction = rootView.findViewById(R.id.text_instruction);
+        instruction.bringToFront();
+        ObjectAnimator fadeout = ObjectAnimator.ofFloat(instruction, "alpha", 1f, 0f);
+        fadeout.setDuration(1000);
+        fadeout.setStartDelay(3000);
+        fadeout.start();
 
         return rootView;  // Return the inflated view
     }

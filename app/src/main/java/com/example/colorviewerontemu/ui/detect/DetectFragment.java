@@ -1,6 +1,7 @@
 package com.example.colorviewerontemu.ui.detect;
 
 import android.Manifest;
+import android.animation.ObjectAnimator;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -89,7 +90,6 @@ public class DetectFragment extends Fragment {
         deuButton = binding.green;
         triButton = binding.blue;
 
-        normButton.setSelected(true);
         normButton.setOnClickListener(view -> {
             pr = false;
             de = false;
@@ -116,6 +116,8 @@ public class DetectFragment extends Fragment {
             tr = true;
             changeFilter();
         });
+
+        changeFilter();
 
         // Button to turn on menu.
 //        final Button toggleFixButton = binding.changeFilterButton;
@@ -152,6 +154,14 @@ public class DetectFragment extends Fragment {
         centerPlus.bringToFront();
         centerPlus.setX((int) (glSurfaceView.getWidth() / 2f - centerPlus.getWidth() / 2f));
         centerPlus.setY((int) (glSurfaceView.getHeight() / 2f - centerPlus.getHeight() / 2f));
+
+        final TextView instruction = binding.textInstruction;
+        instruction.bringToFront();
+        ObjectAnimator fadeout = ObjectAnimator.ofFloat(instruction, "alpha", 1f, 0f);
+        fadeout.setDuration(1000);
+        fadeout.setStartDelay(3000);
+        fadeout.start();
+
 //        fixMenu.bringToFront();
 
         // Initial testing
